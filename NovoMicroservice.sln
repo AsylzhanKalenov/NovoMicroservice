@@ -9,13 +9,23 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{BCB3EFF5
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "PersonMicro", "PersonMicro", "{E9390EC5-3170-4C58-B001-266770A21783}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PersonAPI", "src\PersonMicro\PersonAPI\PersonAPI.csproj", "{DF7E6379-F23F-4BE3-9824-93B4E0E41E33}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PersonAPI", "src\PersonMicro\PersonAPI\PersonAPI.csproj", "{DF7E6379-F23F-4BE3-9824-93B4E0E41E33}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PersonAPI.Core", "src\PersonMicro\PersonAPI.Core\PersonAPI.Core.csproj", "{411EC195-D074-4AA6-9286-45BA4E982B13}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PersonAPI.Core", "src\PersonMicro\PersonAPI.Core\PersonAPI.Core.csproj", "{411EC195-D074-4AA6-9286-45BA4E982B13}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PersonAPI.SharedKernel", "src\PersonMicro\PersonAPI.SharedKernel\PersonAPI.SharedKernel.csproj", "{E2D68D04-169F-46C8-8D55-31CDF86CA95C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PersonAPI.SharedKernel", "src\PersonMicro\PersonAPI.SharedKernel\PersonAPI.SharedKernel.csproj", "{E2D68D04-169F-46C8-8D55-31CDF86CA95C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PersonAPI.Infrastructure", "src\PersonMicro\PersonAPI.Infrastructure\PersonAPI.Infrastructure.csproj", "{44313795-BB6D-4698-8C32-D95D59BBF2E2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PersonAPI.Infrastructure", "src\PersonMicro\PersonAPI.Infrastructure\PersonAPI.Infrastructure.csproj", "{44313795-BB6D-4698-8C32-D95D59BBF2E2}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "EmployeeMicro", "EmployeeMicro", "{87F4D70F-E16F-4E60-AFEE-114B9A77085F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EmployeeAPI", "src\EmployeeMicro\EmployeeAPI\EmployeeAPI.csproj", "{7E342046-9828-4462-9C52-3944A6B111ED}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EmployeeAPI.Core", "src\EmployeeMicro\EmployeeAPI.Core\EmployeeAPI.Core.csproj", "{FD90F343-4548-4B85-A0AD-0565148F52EC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EmployeeApi.SharedKernel", "src\EmployeeMicro\EmployeeApi.SharedKernel\EmployeeApi.SharedKernel.csproj", "{62728D19-3BE8-451F-A778-CF805E6878EE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EmployeeAPI.Infrastructure", "src\EmployeeMicro\EmployeeAPI.Infrastructure\EmployeeAPI.Infrastructure.csproj", "{FB201F1A-14AD-4FBF-91E8-B0720BC8ADE4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,6 +49,22 @@ Global
 		{44313795-BB6D-4698-8C32-D95D59BBF2E2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{44313795-BB6D-4698-8C32-D95D59BBF2E2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{44313795-BB6D-4698-8C32-D95D59BBF2E2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7E342046-9828-4462-9C52-3944A6B111ED}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7E342046-9828-4462-9C52-3944A6B111ED}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7E342046-9828-4462-9C52-3944A6B111ED}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7E342046-9828-4462-9C52-3944A6B111ED}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FD90F343-4548-4B85-A0AD-0565148F52EC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FD90F343-4548-4B85-A0AD-0565148F52EC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FD90F343-4548-4B85-A0AD-0565148F52EC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FD90F343-4548-4B85-A0AD-0565148F52EC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{62728D19-3BE8-451F-A778-CF805E6878EE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{62728D19-3BE8-451F-A778-CF805E6878EE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{62728D19-3BE8-451F-A778-CF805E6878EE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{62728D19-3BE8-451F-A778-CF805E6878EE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FB201F1A-14AD-4FBF-91E8-B0720BC8ADE4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FB201F1A-14AD-4FBF-91E8-B0720BC8ADE4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FB201F1A-14AD-4FBF-91E8-B0720BC8ADE4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FB201F1A-14AD-4FBF-91E8-B0720BC8ADE4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -49,6 +75,11 @@ Global
 		{411EC195-D074-4AA6-9286-45BA4E982B13} = {E9390EC5-3170-4C58-B001-266770A21783}
 		{E2D68D04-169F-46C8-8D55-31CDF86CA95C} = {E9390EC5-3170-4C58-B001-266770A21783}
 		{44313795-BB6D-4698-8C32-D95D59BBF2E2} = {E9390EC5-3170-4C58-B001-266770A21783}
+		{87F4D70F-E16F-4E60-AFEE-114B9A77085F} = {4F69AABE-7AAA-410B-99E9-AFA1DB910BAE}
+		{7E342046-9828-4462-9C52-3944A6B111ED} = {87F4D70F-E16F-4E60-AFEE-114B9A77085F}
+		{FD90F343-4548-4B85-A0AD-0565148F52EC} = {87F4D70F-E16F-4E60-AFEE-114B9A77085F}
+		{62728D19-3BE8-451F-A778-CF805E6878EE} = {87F4D70F-E16F-4E60-AFEE-114B9A77085F}
+		{FB201F1A-14AD-4FBF-91E8-B0720BC8ADE4} = {87F4D70F-E16F-4E60-AFEE-114B9A77085F}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {1EBF8120-3127-4D78-A084-223D25A324A3}
