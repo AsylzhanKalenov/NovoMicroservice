@@ -19,13 +19,23 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PersonAPI.Infrastructure", 
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "EmployeeMicro", "EmployeeMicro", "{87F4D70F-E16F-4E60-AFEE-114B9A77085F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EmployeeAPI", "src\EmployeeMicro\EmployeeAPI\EmployeeAPI.csproj", "{7E342046-9828-4462-9C52-3944A6B111ED}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EmployeeAPI", "src\EmployeeMicro\EmployeeAPI\EmployeeAPI.csproj", "{7E342046-9828-4462-9C52-3944A6B111ED}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EmployeeAPI.Core", "src\EmployeeMicro\EmployeeAPI.Core\EmployeeAPI.Core.csproj", "{FD90F343-4548-4B85-A0AD-0565148F52EC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EmployeeAPI.Core", "src\EmployeeMicro\EmployeeAPI.Core\EmployeeAPI.Core.csproj", "{FD90F343-4548-4B85-A0AD-0565148F52EC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EmployeeApi.SharedKernel", "src\EmployeeMicro\EmployeeApi.SharedKernel\EmployeeApi.SharedKernel.csproj", "{62728D19-3BE8-451F-A778-CF805E6878EE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EmployeeApi.SharedKernel", "src\EmployeeMicro\EmployeeApi.SharedKernel\EmployeeApi.SharedKernel.csproj", "{62728D19-3BE8-451F-A778-CF805E6878EE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EmployeeAPI.Infrastructure", "src\EmployeeMicro\EmployeeAPI.Infrastructure\EmployeeAPI.Infrastructure.csproj", "{FB201F1A-14AD-4FBF-91E8-B0720BC8ADE4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EmployeeAPI.Infrastructure", "src\EmployeeMicro\EmployeeAPI.Infrastructure\EmployeeAPI.Infrastructure.csproj", "{FB201F1A-14AD-4FBF-91E8-B0720BC8ADE4}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "CatalogMicro", "CatalogMicro", "{93AD09C3-1E35-4299-A246-99A640671255}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CatalogAPI", "src\CatalogMicro\CatalogAPI\CatalogAPI.csproj", "{C2C2FD39-12DA-44F4-9DCD-A8E5F9E71D7C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CatalogAPI.Core", "src\CatalogMicro\CatalogAPI.Core\CatalogAPI.Core.csproj", "{2FD23384-96DE-4F70-80CC-31966A05305B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CatalogAPI.Infrastructure", "src\CatalogMicro\CatalogAPI.Infrastructure\CatalogAPI.Infrastructure.csproj", "{96FFA156-53AC-46BE-8A91-B068172F6193}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CatalogAPI.SharedKernel", "src\CatalogMicro\CatalogAPI.SharedKernel\CatalogAPI.SharedKernel.csproj", "{D5598FFB-8B67-437F-86BF-A6EF5CEDEE25}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -65,6 +75,22 @@ Global
 		{FB201F1A-14AD-4FBF-91E8-B0720BC8ADE4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FB201F1A-14AD-4FBF-91E8-B0720BC8ADE4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FB201F1A-14AD-4FBF-91E8-B0720BC8ADE4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C2C2FD39-12DA-44F4-9DCD-A8E5F9E71D7C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C2C2FD39-12DA-44F4-9DCD-A8E5F9E71D7C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C2C2FD39-12DA-44F4-9DCD-A8E5F9E71D7C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C2C2FD39-12DA-44F4-9DCD-A8E5F9E71D7C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2FD23384-96DE-4F70-80CC-31966A05305B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2FD23384-96DE-4F70-80CC-31966A05305B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2FD23384-96DE-4F70-80CC-31966A05305B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2FD23384-96DE-4F70-80CC-31966A05305B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{96FFA156-53AC-46BE-8A91-B068172F6193}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{96FFA156-53AC-46BE-8A91-B068172F6193}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{96FFA156-53AC-46BE-8A91-B068172F6193}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{96FFA156-53AC-46BE-8A91-B068172F6193}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D5598FFB-8B67-437F-86BF-A6EF5CEDEE25}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D5598FFB-8B67-437F-86BF-A6EF5CEDEE25}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D5598FFB-8B67-437F-86BF-A6EF5CEDEE25}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D5598FFB-8B67-437F-86BF-A6EF5CEDEE25}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -80,6 +106,11 @@ Global
 		{FD90F343-4548-4B85-A0AD-0565148F52EC} = {87F4D70F-E16F-4E60-AFEE-114B9A77085F}
 		{62728D19-3BE8-451F-A778-CF805E6878EE} = {87F4D70F-E16F-4E60-AFEE-114B9A77085F}
 		{FB201F1A-14AD-4FBF-91E8-B0720BC8ADE4} = {87F4D70F-E16F-4E60-AFEE-114B9A77085F}
+		{93AD09C3-1E35-4299-A246-99A640671255} = {4F69AABE-7AAA-410B-99E9-AFA1DB910BAE}
+		{C2C2FD39-12DA-44F4-9DCD-A8E5F9E71D7C} = {93AD09C3-1E35-4299-A246-99A640671255}
+		{2FD23384-96DE-4F70-80CC-31966A05305B} = {93AD09C3-1E35-4299-A246-99A640671255}
+		{96FFA156-53AC-46BE-8A91-B068172F6193} = {93AD09C3-1E35-4299-A246-99A640671255}
+		{D5598FFB-8B67-437F-86BF-A6EF5CEDEE25} = {93AD09C3-1E35-4299-A246-99A640671255}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {1EBF8120-3127-4D78-A084-223D25A324A3}

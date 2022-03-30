@@ -1,6 +1,6 @@
 using System;
 
-namespace EmployeeAPI
+namespace CatalogAPI
 {
     public class WeatherForecast
     {

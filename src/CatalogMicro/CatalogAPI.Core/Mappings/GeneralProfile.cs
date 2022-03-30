@@ -1,14 +1,14 @@
 ﻿using AutoMapper;
-using EmployeeAPI.Core.DTOs;
-using EmployeeAPI.Core.Entities;
+using CatalogAPI.Core.DTOs;
+using CatalogAPI.Core.Entities;
 
-namespace EmployeeAPI.Core.Mappings
+namespace CatalogAPI.Core.Mappings
 {
     public class GeneralProfile : Profile
     {
         public GeneralProfile()
         {
-            CreateMap<CreateEmployeeRequest, Employee>()
+            CreateMap<CreateProductRequest, Product>()
                 .ForMember(dest =>
                     dest.Id,
                     opt => opt.Ignore()
@@ -21,6 +21,10 @@ namespace EmployeeAPI.Core.Mappings
                     dest.UpdatedAt,
                     opt => opt.Ignore()
                 );
+
+            CreateMap<Product, ProductResponse>();
+
+            CreateMap<Product, SingleProductResponse>();
         }
     }
 }

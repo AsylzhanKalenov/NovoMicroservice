@@ -1,13 +1,12 @@
-﻿using EmployeeAPI.Core.Entities;
-using EmployeeAPI.Core.Interfaces;
-using EmployeeAPI.Infrastructure.Persistence.Contexts;
-using EmployeeAPI.Infrastructure.Persistence.Repositories;
+﻿using CatalogAPI.Core.Interfaces;
+using CatalogAPI.Infrastructure.Persistence.Contexts;
+using CatalogAPI.Infrastructure.Persistence.Repositories;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using System.Diagnostics.CodeAnalysis;
 
-namespace EmployeeAPI.Infrastructure
+namespace CatalogAPI.Infrastructure
 {
     [ExcludeFromCodeCoverage]
     public static class DependencyInjection
@@ -18,13 +17,7 @@ namespace EmployeeAPI.Infrastructure
             services.AddDbContext<AppDbContext>(options =>
                options.UseSqlServer(defaultConnectionString));
 
-            services.AddIdentity<Employee, EmployeeRole>(setup =>
-            {
-                setup.Password.RequiredLength = 6;
-                setup.User.RequireUniqueEmail = true;
-            }).AddEntityFrameworkStores<AppDbContext>();
-
-            services.AddScoped<IEmployeeRepository, EmployeeRepository>();
+            services.AddScoped<IProductRepository, ProductRepository>();
 
             var serviceProvider = services.BuildServiceProvider();
             try
