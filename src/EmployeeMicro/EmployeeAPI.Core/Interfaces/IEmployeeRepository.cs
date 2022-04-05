@@ -9,5 +9,6 @@ namespace EmployeeAPI.Core.Interfaces
     public interface IEmployeeRepository : IRepository<Employee>
     {
         Task<Employee> AddAsync(CreateEmployeeRequest entity, CancellationToken cancellationToken = default(CancellationToken));
+        
     }
 }

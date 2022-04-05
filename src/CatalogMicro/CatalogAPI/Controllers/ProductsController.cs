@@ -26,7 +26,7 @@ namespace CatalogAPI.Controllers
         /// <response code="200">Returns the products</response>
         [HttpGet]
         [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(List<Product>))]
-        public async Task<ActionResult<IEnumerable<Product>>> Get()
+        public async Task<ActionResult<IEnumerable<ProductResponse>>> Get()
         {
             return await productRepository.Get();
         }
@@ -40,12 +40,12 @@ namespace CatalogAPI.Controllers
         [HttpGet("{id}")]
         [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(Product))]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
-        public async Task<ActionResult<Product>> GetById(int id)
+        public async Task<ActionResult<SingleProductResponse>> GetById(int id)
         {
             try
             {
                 var product = await productRepository.GetById(id);
-                return Ok(product);
+                return product;
             }
             catch (NotFoundException)
             {

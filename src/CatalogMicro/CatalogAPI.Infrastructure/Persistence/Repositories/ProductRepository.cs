@@ -8,6 +8,7 @@ using CatalogAPI.Infrastructure.Persistence.Contexts;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -22,7 +23,50 @@ namespace CatalogAPI.Infrastructure.Persistence.Repositories
         {
             this.dbContext = dbContext;
             this.mapper = mapper;
+
+
+            if (!this.dbContext.Categories.Any())
+            {
+                this.dbContext.Categories.AddRange(new List<Category>
+                        {
+                        new Category() { Name = "Sport" },
+                        new Category() { Name = "Computers" },
+                        new Category() { Name = "Phones" },
+                        new Category() { Name = "Books" },
+                        });
+                this.dbContext.SaveChanges();
+            }
+            if (!this.dbContext.Products.Any())
+            {
+                this.dbContext.Products.AddRange(new List<Product>
+                {
+                    new Product() { Name = "Gantels", CategoryId = 1, Price = 24000, Stock = 15, Discount = 7, CreatedAt = DateUtil.GetCurrentDate(), UpdatedAt = DateUtil.GetCurrentDate()},
+                    new Product() { Name = "Asus N434-54", CategoryId = 2, Price = 24000, Stock = 15, Discount = 7, CreatedAt = DateUtil.GetCurrentDate(), UpdatedAt = DateUtil.GetCurrentDate()},
+                    new Product() { Name = "Iphone 7S", CategoryId = 3, Price = 24000, Stock = 15, Discount = 7, CreatedAt = DateUtil.GetCurrentDate(), UpdatedAt = DateUtil.GetCurrentDate()},
+                    new Product() { Name = "Xiaomi note10 pro", CategoryId = 3, Price = 24000, Stock = 15, Discount = 7, CreatedAt = DateUtil.GetCurrentDate(), UpdatedAt = DateUtil.GetCurrentDate()},
+                    new Product() { Name = "George Orwell '1984'", CategoryId = 4, Price = 24000, Stock = 15, Discount = 7, CreatedAt = DateUtil.GetCurrentDate(), UpdatedAt = DateUtil.GetCurrentDate()},
+                    new Product() { Name = "Andrey Kurpaton 'Red pill'", CategoryId = 4, Price = 24000, Stock = 15, Discount = 7, CreatedAt = DateUtil.GetCurrentDate(), UpdatedAt = DateUtil.GetCurrentDate()},
+                });
+                this.dbContext.SaveChanges();
+            }
+            
         }
+        public async Task<List<ProductResponse>> Get()
+        {
+            return await dbContext.Products.Select(x => mapper.Map<ProductResponse>(x)).ToListAsync();
+        }
+
+        public async Task<SingleProductResponse> GetById(int Id)
+        {
+            var product = await dbContext.Products.FindAsync(Id);
+            if (product != null)
+            {
+                return mapper.Map<SingleProductResponse>(product);
+            }
+
+            throw new NotFoundException();
+        }
+
         public async Task<Product> AddAsync(CreateProductRequest entity, CancellationToken cancellationToken = default)
         {
             var product = this.mapper.Map<Product>(entity);
@@ -34,33 +78,12 @@ namespace CatalogAPI.Infrastructure.Persistence.Repositories
             return product;
         }
 
-        public Task DeleteAsync(Product entity, CancellationToken cancellationToken = default)
+        public Task DeleteAsync(SingleProductResponse entity, CancellationToken cancellationToken = default)
         {
             throw new NotImplementedException();
         }
 
         public Task DeleteRangeAsync(IEnumerable<Product> entities, CancellationToken cancellationToken = default)
-        {
-            throw new NotImplementedException();
-        }
-
-        public async Task<List<Product>> Get()
-        {
-            return await dbContext.Products.ToListAsync();
-        }
-
-        public async Task<Product> GetById(int Id)
-        {
-            var product = await dbContext.Products.FindAsync(Id);
-            if (product != null)
-            {
-                return product;
-            }
-
-            throw new NotFoundException();
-        }
-
-        public Task SaveChangesAsync(CancellationToken cancellationToken = default)
         {
             throw new NotImplementedException();
         }

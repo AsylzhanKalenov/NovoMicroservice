@@ -2,7 +2,7 @@
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace CatalogAPI.SharedKernel.Interfaces
+namespace OrderAPI.SharedKernel.Interfaces
 {
     public interface IRepository<T>
     {

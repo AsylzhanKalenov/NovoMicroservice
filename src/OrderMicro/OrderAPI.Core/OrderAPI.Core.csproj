@@ -1,0 +1,21 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="DTOs\OrderProduct.cs~RF12396e38.TMP" />
+    <None Remove="Interfaces\IOrderRepository.cs~RF12513040.TMP" />
+  </ItemGroup>
+
+	<ItemGroup>
+		<PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="11.0.0" />
+		<PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="5.0.15" />
+	</ItemGroup>
+	
+  <ItemGroup>
+    <ProjectReference Include="..\OrderAPI.SharedKernel\OrderAPI.SharedKernel.csproj" />
+  </ItemGroup>
+
+</Project>
