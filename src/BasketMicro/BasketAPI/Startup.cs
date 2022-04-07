@@ -1,14 +1,15 @@
 using BasketAPI.Repositories;
 using BasketAPI.Repositories.Interfaces;
+using EventBus.Messages;
+using MassTransit;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
+using System;
+using System.Reflection;
 
 namespace BasketAPI
 {
@@ -32,6 +33,21 @@ namespace BasketAPI
 
             // General Configuration
             services.AddScoped<IBasketRepository, BasketRepository>();
+
+            services.AddMassTransit(x =>
+            {
+                x.AddBus(provider => Bus.Factory.CreateUsingRabbitMq(config =>
+                {
+                    config.Host(new Uri(RabbitMqConsts.RabbitMqRootUri), h =>
+                    {
+                        h.Username(RabbitMqConsts.UserName);
+                        h.Password(RabbitMqConsts.Password);
+                    });
+                }));
+            });
+            //services.AddMassTransitHostedService();
+
+            services.AddAutoMapper(Assembly.GetExecutingAssembly());
 
             services.AddControllers();
             services.AddSwaggerGen(c =>

@@ -1,16 +1,15 @@
+using EventBus.Messages;
+using MassTransit;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
+using OrderAPI.Consumers;
+using OrderAPI.Core;
+using OrderAPI.Infrastructure;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace OrderAPI
 {
@@ -26,6 +25,29 @@ namespace OrderAPI
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+
+            services.AddApplicationCore();
+            services.AddInfrastructure(Configuration);
+
+            services.AddMassTransit(x =>
+            {
+                x.AddConsumer<BasketCheckoutConsumer>();
+                x.AddBus(provider => Bus.Factory.CreateUsingRabbitMq(cfg =>
+                {
+                    cfg.Host(new Uri(RabbitMqConsts.RabbitMqRootUri), h =>
+                    {
+                        h.Username(RabbitMqConsts.UserName);
+                        h.Password(RabbitMqConsts.Password);
+                    });
+                    cfg.ReceiveEndpoint("basketQueue", ep =>
+                    {
+                        ep.PrefetchCount = 16;
+                        ep.UseMessageRetry(r => r.Interval(2, 100));
+                        ep.ConfigureConsumer<BasketCheckoutConsumer>(provider);
+                    });
+                }));
+            });
+            //services.AddMassTransitHostedService();
 
             services.AddControllers();
             services.AddSwaggerGen(c =>

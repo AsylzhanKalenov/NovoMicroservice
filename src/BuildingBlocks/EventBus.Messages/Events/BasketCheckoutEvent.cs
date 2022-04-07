@@ -1,17 +1,13 @@
-﻿using OrderAPI.SharedKernel;
-using OrderAPI.SharedKernel.Interfaces;
-using System;
-
-namespace OrderAPI.Core.Entities
+﻿namespace EventBus.Messages.Events
 {
-    public class Order : BaseEntity, IAggregateRoot
+    public class BasketCheckoutEvent : IntegrationBaseEvent
     {
-        public double TotalPrice { get; set; }
-        public Guid CustomerId { get; set; }
-        public int StatusId { get; set; }
-        public Status Status { get; set; }
+        public string UserName { get; set; }
+        public decimal TotalPrice { get; set; }
 
         // BillingAddress
+        public string FirstName { get; set; }
+        public string LastName { get; set; }
         public string EmailAddress { get; set; }
         public string AddressLine { get; set; }
         public string Country { get; set; }
@@ -24,9 +20,5 @@ namespace OrderAPI.Core.Entities
         public string Expiration { get; set; }
         public string CVV { get; set; }
         public int PaymentMethod { get; set; }
-
-        // DateOfActives
-        public DateTime CreatedAt { get; set; }
-        public DateTime UpdatedAt { get; set; }
     }
 }

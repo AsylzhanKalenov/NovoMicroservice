@@ -7,6 +7,7 @@ namespace OrderAPI.Core.Entities
         public int OrderId { get; set; }
         public Order Order { get; set; }
         public int ProductId { get; set; }
+        public string ProductName { get; set; }
         public int Amount { get; set; }
     }
 }

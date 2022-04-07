@@ -15,6 +15,7 @@
 	</ItemGroup>
 	
   <ItemGroup>
+    <ProjectReference Include="..\..\BuildingBlocks\EventBus.Messages\EventBus.Messages.csproj" />
     <ProjectReference Include="..\OrderAPI.SharedKernel\OrderAPI.SharedKernel.csproj" />
   </ItemGroup>
 

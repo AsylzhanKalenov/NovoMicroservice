@@ -1,15 +1,14 @@
 ﻿using AutoMapper;
-using EventBus.Messages.Events;
-using OrderAPI.Core.DTOs;
-using OrderAPI.Core.Entities;
+using CustomerAPI.Core.DTOs;
+using CustomerAPI.Core.Entities;
 
-namespace OrderAPI.Core.Mappings
+namespace CustomerAPI.Core.Mappings
 {
     public class GeneralProfile : Profile
     {
         public GeneralProfile()
         {
-            CreateMap<CreateOrderRequest, Order>()
+            CreateMap<CreateCustomerRequest, Customer>()
                 .ForMember(dest =>
                     dest.Id,
                     opt => opt.Ignore()
@@ -22,10 +21,6 @@ namespace OrderAPI.Core.Mappings
                     dest.UpdatedAt,
                     opt => opt.Ignore()
                 );
-
-            CreateMap<BasketCheckoutEvent, CreateOrderRequest>();
-
-            CreateMap<Order, OrderResponse>();
         }
     }
 }
