@@ -1,0 +1,151 @@
+{
+  "Routes": [
+
+    // Customer
+    {
+      "DownstreamPathTemplate": "/api/Customer",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 44397
+        }
+      ],
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "customer_auth_scheme",
+        "AllowedScopes": []
+      },
+      "UpstreamPathTemplate": "/gateway/customerRequests",
+      "UpstreamHttpMethod": [ "GET" ]
+    },
+    {
+      "DownstreamPathTemplate": "/api/Customers/{id}",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 44397
+        }
+      ],
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "customer_auth_scheme",
+        "AllowedScopes": []
+      },
+      "UpstreamPathTemplate": "/gateway/customerRequests/{id}",
+      "UpstreamHttpMethod": [ "GET", "DELETE" ]
+    },
+
+    // Product
+    {
+      "DownstreamPathTemplate": "/api/Products",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 44383
+        }
+      ],
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "customer_auth_scheme",
+        "AllowedScopes": []
+      },
+      "UpstreamPathTemplate": "/gateway/productRequests",
+      "UpstreamHttpMethod": [ "GET", "POST" ]
+    },
+    {
+      "DownstreamPathTemplate": "/api/Products/{id}",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 44383
+        }
+      ],
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "customer_auth_scheme",
+        "AllowedScopes": []
+      },
+      "UpstreamPathTemplate": "/gateway/productRequests/{id}",
+      "UpstreamHttpMethod": [ "GET", "DELETE" ]
+    },
+
+    // Basket
+    {
+      "DownstreamPathTemplate": "/api/Basket",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 44339
+        }
+      ],
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "customer_auth_scheme",
+        "AllowedScopes": []
+      },
+      "UpstreamPathTemplate": "/gateway/basketRequests",
+      "UpstreamHttpMethod": [ "POST" ]
+    },
+    {
+      "DownstreamPathTemplate": "/api/Basket/Checkout",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 44339
+        }
+      ],
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "customer_auth_scheme",
+        "AllowedScopes": []
+      },
+      "UpstreamPathTemplate": "/gateway/basketRequests/Checkout",
+      "UpstreamHttpMethod": [ "POST" ]
+    },
+    {
+      "DownstreamPathTemplate": "/api/Basket/{userName}",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 44339
+        }
+      ],
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "customer_auth_scheme",
+        "AllowedScopes": []
+      },
+      "UpstreamPathTemplate": "/gateway/basketRequests/{userName}",
+      "UpstreamHttpMethod": [ "GET", "DELETE" ]
+    },
+
+    // Order
+    {
+      "DownstreamPathTemplate": "/api/Orders",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 44301
+        }
+      ],
+      "UpstreamPathTemplate": "/gateway/orderRequests",
+      "UpstreamHttpMethod": [ "POST", "PUT", "GET" ]
+    },
+    {
+      "DownstreamPathTemplate": "/api/Orders/{id}",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 44301
+        }
+      ],
+      "UpstreamPathTemplate": "/gateway/orderRequests/{id}",
+      "UpstreamHttpMethod": [ "GET", "DELETE" ]
+    }
+  ],
+  "GlobalConfiguration": {
+    "BaseUrl": "http://localhost:44304"
+  }
+} 

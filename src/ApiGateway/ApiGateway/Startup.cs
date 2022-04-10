@@ -1,9 +1,15 @@
+using ApiGateway.Client;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
+using Ocelot.DependencyInjection;
+using Ocelot.Middleware;
+using System;
+using System.Text;
 
 namespace ApiGateway
 {
@@ -20,6 +26,24 @@ namespace ApiGateway
         public void ConfigureServices(IServiceCollection services)
         {
 
+            services.AddAuthentication().AddJwtBearer("customer_auth_scheme", options =>
+            {
+                options.TokenValidationParameters = new TokenValidationParameters()
+                {
+                    IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(CustomerJwtSetting.SecretKey)),
+                    ValidAudience = CustomerJwtSetting.Audience,
+                    ValidIssuer = CustomerJwtSetting.Issuer,
+                    ValidateIssuerSigningKey = true,
+                    ValidateLifetime = true,
+                    ClockSkew = TimeSpan.Zero
+                };
+
+            });
+
+            services.AddOcelot();
+
+            services.AddHttpClient<ICustomerClient, CustomerClient>(c => c.BaseAddress = new Uri("https://localhost:44397/"));
+
             services.AddControllers();
             services.AddSwaggerGen(c =>
             {
@@ -28,7 +52,7 @@ namespace ApiGateway
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+        public async void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
             if (env.IsDevelopment())
             {
@@ -42,11 +66,14 @@ namespace ApiGateway
             app.UseRouting();
 
             app.UseAuthorization();
+            app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
             });
+
+            await app.UseOcelot();
         }
     }
 }
