@@ -129,6 +129,10 @@
           "Port": 44301
         }
       ],
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "customer_auth_scheme",
+        "AllowedScopes": []
+      },
       "UpstreamPathTemplate": "/gateway/orderRequests",
       "UpstreamHttpMethod": [ "POST", "PUT", "GET" ]
     },
@@ -141,6 +145,10 @@
           "Port": 44301
         }
       ],
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "customer_auth_scheme",
+        "AllowedScopes": []
+      },
       "UpstreamPathTemplate": "/gateway/orderRequests/{id}",
       "UpstreamHttpMethod": [ "GET", "DELETE" ]
     }

@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using OrderAPI.Core.DTOs;
 using OrderAPI.Core.Entities;
@@ -11,6 +12,7 @@ namespace OrderAPI.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [Authorize(AuthenticationSchemes = "customer_auth_scheme")]
     public class OrdersController : ControllerBase
     {
         private readonly IOrderRepository orderRepository;

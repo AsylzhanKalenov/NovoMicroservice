@@ -1,15 +1,18 @@
 using EventBus.Messages;
 using MassTransit;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using OrderAPI.Consumers;
 using OrderAPI.Core;
 using OrderAPI.Infrastructure;
 using System;
+using System.Text;
 
 namespace OrderAPI
 {
@@ -25,6 +28,19 @@ namespace OrderAPI
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddAuthentication("customer_auth_scheme").AddJwtBearer("customer_auth_scheme", options =>
+            {
+                options.TokenValidationParameters = new TokenValidationParameters()
+                {
+                    IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(CustomerJwtSetting.SecretKey)),
+                    ValidAudience = CustomerJwtSetting.Audience,
+                    ValidIssuer = CustomerJwtSetting.Issuer,
+                    ValidateIssuerSigningKey = true,
+                    ValidateLifetime = true,
+                    ClockSkew = TimeSpan.Zero
+                };
+            });
+
 
             services.AddApplicationCore();
             services.AddInfrastructure(Configuration);
@@ -70,6 +86,7 @@ namespace OrderAPI
 
             app.UseRouting();
 
+            app.UseAuthentication();    
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>

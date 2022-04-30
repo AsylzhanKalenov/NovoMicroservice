@@ -37,7 +37,6 @@ namespace ApiGateway
                     ValidateLifetime = true,
                     ClockSkew = TimeSpan.Zero
                 };
-
             });
 
             services.AddOcelot();
@@ -65,7 +64,7 @@ namespace ApiGateway
 
             app.UseRouting();
 
-            app.UseAuthorization();
+            app.UseAuthentication();   
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
